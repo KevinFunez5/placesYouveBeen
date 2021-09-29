@@ -21,5 +21,13 @@ namespace TravelLog.Tests
       Place newPlace = new Place("New York");
       Assert.AreEqual("New York", newPlace.CityName);
     }
+    
+    [TestMethod]
+    public void UpdatePlace_UpdateCityName_Portland()
+    {
+      Place newPlace = new Place("New York");
+      newPlace.CityName = "Portland";
+      Assert.AreEqual("Portland", newPlace.CityName);
+    }
   }
 }
