@@ -19,7 +19,7 @@ namespace TravelLog.Controllers
       return View();
     }
 
-    [HttpGet("/place")]
+    [HttpPost("/place")]
     public ActionResult Create(string cityName)
     {
       Place newPlace = new Place(cityName);
