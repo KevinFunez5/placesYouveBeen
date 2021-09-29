@@ -1,5 +1,3 @@
-@using TravelLog.Models;
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,17 +6,14 @@
   </head>
   <body>
     <div class="container">
-      <h2>Travel Log</h2>
-      @if (Model.Count == 0)
-      {
-        <p>You have no trips yet.</p>
-      }
-      <ul>
-        @foreach (Place place in Model)
-        {
-          <li>place.cityName</li>
-        }
-      </ul>
+      <h2>Fill out the form</h2>
+      <form action="/place" method="post">
+      <div class="form-group">
+        <label for="cityName">City:</label>
+        <input type="text" name="cityName" id="cityName">
+      </div>
+      <button type="submit">Log your trip</button>
+      </form>
     </div>
   </body>
 </html>

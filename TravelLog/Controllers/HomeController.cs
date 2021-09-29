@@ -8,6 +8,7 @@ namespace TravelLog.Controllers
     [Route("/")]
     public ActionResult Index() { return View(); }
 
+
     // add additional paths with the format:
   
     // [Route("/pathName")]
