@@ -14,5 +14,12 @@ namespace TravelLog.Tests
       Place newPlace = new Place("New York");
       Assert.AreEqual(typeof(Place), newPlace.GetType());
     }
+
+    [TestMethod]
+    public void PlaceConstructor_SetProperty_NewYork()
+    {
+      Place newPlace = new Place("New York");
+      Assert.AreEqual("New York", newPlace.CityName);
+    }
   }
 }
