@@ -25,5 +25,21 @@ namespace TravelLog.Controllers
       Place newPlace = new Place(cityName);
       return RedirectToAction("Index");
     }
+
+    [HttpGet("/place/{Id}")]
+    public ActionResult Show(int Id)
+    {
+      Place selectedPlace = Place.Find(Id);
+      return View(selectedPlace);
+
+    }
+
+    [HttpPost("/place/{Id}")]
+    public ActionResult Destroy(int Id)
+    {
+      Place selectedPlace = Place.Find(Id);
+      selectedPlace.Delete();
+      return View();
+    }
   }
 }

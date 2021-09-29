@@ -60,5 +60,18 @@ namespace TravelLog.Tests
       Place result = Place.Find(2);
       Assert.AreEqual(anotherPlace, result);
     }
+
+    [TestMethod]
+    public void Delete_RemovePlaceFromInstances_UpdatedList()
+    {
+      Place newPlace = new Place("New York");
+      Place anotherPlace = new Place("Portland");
+      List<Place> testList = new List<Place> { {}, anotherPlace};
+      newPlace.Delete();
+      List<Place> result = Place.GetAll();
+      CollectionAssert.AreEqual(testList, result);
+
+
+    }
   }
 }

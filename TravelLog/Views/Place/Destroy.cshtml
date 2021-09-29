@@ -1,4 +1,3 @@
-@using TravelLog.Models;
 
 <!DOCTYPE html>
 <html>
@@ -9,20 +8,8 @@
   <body>
     <div class="container">
       <h2>Travel Log</h2>
-      @if (Model.Count == 0)
-      {
-        <p>You have no trips yet.</p>
-      } 
-      <ul>
-        @foreach (Place place in Model)
-        {
-          @if (place != null)
-          {
-            <li><a href="/place/@place.Id">@place.CityName</a></li>
-          }
-        }
-      </ul>
-      <a href="/place/new" class="btn">Create an Entry</a>
+      <h4>Your travel entry has been deleted!</h4>
+      <a href="/place" class="btn">Return to Travel Log</a>
     </div>
   </body>
 </html>

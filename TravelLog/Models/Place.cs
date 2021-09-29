@@ -9,6 +9,7 @@ namespace TravelLog.Models
     private static List<Place> _instances = new List<Place> {};
     public int Id {get;}
 
+
     public Place(string cityName)
     {
       CityName = cityName;
@@ -29,6 +30,12 @@ namespace TravelLog.Models
     public static Place Find(int searchId)
     {
       return _instances[searchId - 1];
+    }
+
+    public void Delete()
+    {
+
+      _instances[Id - 1] = null;
     }
   }
 }
