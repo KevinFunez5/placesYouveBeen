@@ -6,8 +6,13 @@ using System;
 namespace TravelLog.Tests
 {
   [TestClass]
-  public class PlaceTest
+  public class PlaceTest : IDisposable
   {
+    public void Dispose()
+    {
+      Place.ClearAll();
+    }
+
     [TestMethod]
     public void PlaceConstructor_CreateInstanceOfPlace_Place()
     {
@@ -16,10 +21,17 @@ namespace TravelLog.Tests
     }
 
     [TestMethod]
-    public void PlaceConstructor_SetProperty_NewYork()
+    public void PlaceConstructor_GetProperty_NewYork()
     {
       Place newPlace = new Place("New York");
       Assert.AreEqual("New York", newPlace.CityName);
+    }
+
+    [TestMethod]
+    public void PlaceConstructor_GetID_1()
+    {
+      Place newPlace = new Place("New York");
+      Assert.AreEqual(1, newPlace.Id);
     }
     
     [TestMethod]
@@ -28,6 +40,16 @@ namespace TravelLog.Tests
       Place newPlace = new Place("New York");
       newPlace.CityName = "Portland";
       Assert.AreEqual("Portland", newPlace.CityName);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnPlaces_PlaceList()
+    {
+      Place newPlace = new Place("New York");
+      Place anotherPlace = new Place("Portland");
+      List<Place> placeList = new List<Place> {newPlace, anotherPlace};
+      List<Place> result = Place.GetAll();
+      CollectionAssert.AreEqual(placeList, result);
     }
   }
 }
