@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using FileName.Models;
+using TravelLog.Models;
 
-namespace FileName.Controllers
+namespace TravelLog.Controllers
 {
   public class HomeController : Controller
   {
     [Route("/")]
-    public ActionResult HomePage() { return View(); }
+    public ActionResult Index() { return View(); }
 
     // add additional paths with the format:
   
