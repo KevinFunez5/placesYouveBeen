@@ -51,5 +51,14 @@ namespace TravelLog.Tests
       List<Place> result = Place.GetAll();
       CollectionAssert.AreEqual(placeList, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnCorrectPlace_AnotherPlace()
+    {
+      Place newPlace = new Place("New York");
+      Place anotherPlace = new Place("Portland");
+      Place result = Place.Find(2);
+      Assert.AreEqual(anotherPlace, result);
+    }
   }
 }
